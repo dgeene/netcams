@@ -1,8 +1,7 @@
 from app import db
-# this schema needs to be verified
-# are bridge tables being created?
+# continue verifying the schema
 # http://docs.sqlalchemy.org/en/rel_1_0/orm/basic_relationships.html#many-to-many
-#
+# TODO sqlite doesnt support decimals. Use a string?
 
 # address the many to many with a bridge table
 camera_categories = db.Table('camera_categories', db.Model.metadata,
@@ -18,6 +17,7 @@ class Category(db.Model):
 
     def __repr__(self):
         return '<Category %r>' % (self.category_name)
+
 
 class CameraType(db.Model):
     __tablename__ = 'camera_type'
@@ -36,6 +36,7 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % (self.nickname)
+
 
 class Camera(db.Model):
     __tablename__ = 'camera'
